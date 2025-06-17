@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CadastroClientes.Models.Cliente>
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<div class="container mt-4">
+    <div class="card shadow p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-0">Lista de Clientes</h2>
+            <a class="btn btn-primary" asp-action="Create">Novo Cliente</a>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="row">Nome</th>
+                    <th scope="row">Email</th>
+                    <th scope="row">Telefone</th>
+                    <th style="width: 150px">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@item.Email</td>
+                        <td>@item.Telefone</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

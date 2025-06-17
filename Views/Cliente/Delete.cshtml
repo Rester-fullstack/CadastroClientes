@@ -1,0 +1,43 @@
+﻿@model CadastroClientes.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir Cliente";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow p-4">
+                <h2 class="text-center mb-3">🗑️ Excluir Cliente</h2>
+                <h5 class="text-center text-danger mb-4">Tem certeza que deseja excluir este cliente?</h5>
+
+                
+                <dl class="row justify-content-center text-center">
+                    <div class="col-12 mb-3 border-bottom pb-2">
+                        <dt class="fw-semibold">Nome:</dt>
+                        <dd>@Model.Nome</dd>
+                    </div>
+
+                    <div class="col-12 mb-3 border-bottom pb-2">
+                        <dt class="fw-semibold">Email:</dt>
+                        <dd>@Model.Email</dd>
+                    </div>
+
+                    <div class="col-12 mb-1">
+                        <dt class="fw-semibold">Telefone:</dt>
+                        <dd>@Model.Telefone</dd>
+                    </div>
+                </dl>
+
+
+                <div class="text-center mt-4">
+                    <form asp-action="Delete" method="post" class="d-inline">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger me-2">Excluir</button>
+                    </form>
+                    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
